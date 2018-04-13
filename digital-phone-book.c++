@@ -59,5 +59,24 @@ class BinaryTree {
         	}
     	} // close method
 
+    	// add a method to count the number of nodes visited 
+    	int nodeCount(int _data) {
+
+    		// counter
+    		int count = 0;
+    		node* walker = root;
+
+    		while (walker) {
+    			if (_data == walker->data) {
+    				return count;
+    			} else {
+    				walker = (_data < walker->data) ? walker->left : walker->right;
+    				count++;
+    			}
+    		} // end while
+
+    		// nothing found so return -1 to indicate that.
+    		return -1;
+    	}
 
 } // close class
