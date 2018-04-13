@@ -23,7 +23,41 @@ class BinaryTree {
             }
             cout<<temp->data<<" ";
             if (temp->right) {
-                print(temp->right)
+                print(temp->right);
             }
-        }
-}
+        } // close method
+    
+    public:
+    	// store data inside the nodes
+    	void adder(int _data) {
+        	
+        	if (!root) {
+        		root = new node(_data)
+        	} else {
+        		// node that will walk through the BST
+        		node* walker = root;
+        		
+        		while (walker) {
+        			if (_data < walker->data) {
+        				
+        				if (walker->left) {
+        					walker = walker->left;
+        				} else {
+        					walker->left = new node(_data);
+        					walker = NULL;
+        				}
+        			} else {
+        				if (walker->right) {
+        					walker = walker->right;
+        				} else {
+        					walker->right = new node(_data);
+        					walker = NULL;
+        				}
+        			}
+        		}
+        		
+        	}
+    	} // close method
+
+
+} // close class
